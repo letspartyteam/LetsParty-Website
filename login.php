@@ -38,9 +38,9 @@
 					unset($_SESSION['msg']);
 				}
 			?>
-			<!-- test -->
+			<!-- test .. -->
 
-			
+
 			</center>
 		</div>
 	</div>
