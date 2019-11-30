@@ -6,7 +6,7 @@ $user = new User();
 
  if (isset($_POST['signup'])){
 	 	$username = $user->escape_string($_POST['username']);
-		$password = $user->escape_string($_POST['password']);
+		$password = md5($_POST['password']);
 		$name = $user->escape_string($_POST['name']);
 		$email = $user->escape_string($_POST['email']);
 		

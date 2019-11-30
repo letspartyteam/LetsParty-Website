@@ -4,7 +4,7 @@ include ("connection.php");
 $incorrect=false;
 if (isset($_POST['login'])){
    $username=$_POST['username'];
-   $password=$_POST['password'];
+   $password=md5($_POST['password']);
 
 	$selectUser="SELECT * FROM users WHERE  username='$username' and password='$password'";
 	
