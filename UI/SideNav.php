@@ -9,7 +9,7 @@
 			<li><a href="Index.php">Explore</a></li>
 			<li><a href="Categories.php">Categories</a></li>
 			<!-- <li><a href="cart.php">Cart</a></li> -->
-			<li><a href="#">Direct Messages</a></li>
+			
 			<!-- <li><a href="LoginDatabase/logout.php">Log out</a></li> -->
 		</ul>
 	</nav>
