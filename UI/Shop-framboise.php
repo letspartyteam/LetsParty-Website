@@ -22,7 +22,7 @@
                             <div class="btn-group">
                                 <button class="button"><a href="tel:+96651071300" style="text-decoration:none; color:inherit">Call</a></button>
                                 <!-- missing -->
-                                <button class="button">Message</button>
+                                <a href="https://api.whatsapp.com/send?phone=966597598811" class="button">Message</a>
                                 <button class="button"><a style="text-decoration:none; color:inherit" href="mailto:framboiseandolive@example.com">Email</a></button>
                                 <button class="button"><a style="text-decoration:none; color:inherit" href="https://www.google.com/maps/place/Framboise+and+Olive/@24.7343062,46.7084256,15z/data=!4m5!3m4!1s0x0:0x339a6edc4ebd6690!8m2!3d24.7343062!4d46.7084256">Location</a></button>
                             </div>
