@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 30, 2019 at 04:36 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.32
+-- Generation Time: Nov 30, 2019 at 01:11 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `letsparty`
+-- Database: `LetsParty`
 --
 
 -- --------------------------------------------------------
@@ -31,30 +31,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `price` int(11) NOT NULL
+  `price` int(11) NOT NULL,
+  `sp_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `price`) VALUES
-(1, 'Cannon EOS', 36000),
-(2, 'Sony DSLR', 40000),
-(3, 'Sony DSLR', 50000),
-(4, 'Olympus DSLR', 80000),
-(5, 'Titan Model #301', 13000),
-(6, 'Titan Model #201', 3000),
-(7, 'HMT Milan', 8000),
-(8, 'Favre Lueba #111', 18000),
-(9, 'Raymond', 1500),
-(10, 'Charles', 1000),
-(11, 'HXR', 900),
-(12, 'PINK', 1200),
-(13, 'Mixed Berries Cheesecake', 142),
-(14, 'Popcorn Caramel Cheesecake', 142),
-(15, 'Raha Rose Cheesecake\r\n', 142),
-(16, 'Mini Mixed Cheesecake\r\n', 27);
+INSERT INTO `items` (`id`, `name`, `price`, `sp_id`) VALUES
+(13, 'Mixed Berries Cheesecake', 142, 16),
+(14, 'Popcorn Caramel Cheesecake', 142, 16),
+(15, 'Raha Rose Cheesecake', 142, 16),
+(16, 'Mini Mixed Cheesecake\r\n', 27, 16);
 
 -- --------------------------------------------------------
 
@@ -76,18 +65,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `type`) VALUES
-(4, '', 'yugesh verma', 'yugeshverma32@gmail.com', '14e1b600b1fd579f47433b88e8d85291', 0),
-(5, '', 'yugesh', 'yugeshverma@gmail.com', '14e1b600b1fd579f47433b88e8d85291', 0),
-(7, 'medo', 'Mayada', 'fr@g', '123456', 2),
-(8, 'razora', 'razan', 'r@g', '123456', 1),
-(9, 'aya', 'Aya', 'hi@gmail.com', '1234567', 1),
 (10, 'x', 'x', 'x', 'x', 1),
-(11, 'y', 'y', 'y', 'y', 1),
-(12, 'k', 'k', 'k', 'k', 1),
-(13, 'h', 'h', 'h', 'h', 1),
-(14, 'd', 'd', 'd', 'd', 1),
-(15, 'e', 'e', 'e', 'e', 1),
-(16, 'sp', 'sp', 'sp', 'sp', 2);
+(16, 'sp', 'sp', 'sp', 'sp', 2),
+(17, 'aya', 'aya alhamdan', 'aya@mail.com', 'aya', 1),
+(18, 'framboise', 'framboise and olives', 'framboiseandolives@mail.com', 'sp', 2),
+(19, 'mayada', 'mayada elsaid', 'mayada@mail.com', 'medo', 1),
+(20, 'sara', 'sara altuwaijri', 'sara@mail.com', 'sara', 1);
 
 -- --------------------------------------------------------
 
@@ -99,25 +82,17 @@ CREATE TABLE `users_items` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
-  `status` enum('Added to cart','Confirmed') NOT NULL
+  `status` enum('Added to cart','Confirmed') NOT NULL,
+  `sp_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users_items`
 --
 
-INSERT INTO `users_items` (`id`, `user_id`, `item_id`, `status`) VALUES
-(7, 3, 3, 'Added to cart'),
-(8, 3, 4, 'Added to cart'),
-(9, 3, 5, 'Added to cart'),
-(10, 3, 11, 'Added to cart'),
-(11, 1, 9, 'Added to cart'),
-(12, 1, 2, 'Added to cart'),
-(13, 1, 8, 'Added to cart'),
-(14, 4, 2, 'Confirmed'),
-(45, 10, 14, 'Added to cart'),
-(46, 14, 13, 'Added to cart'),
-(47, 15, 15, 'Added to cart');
+INSERT INTO `users_items` (`id`, `user_id`, `item_id`, `status`, `sp_id`) VALUES
+(80, 19, 16, 'Confirmed', 0),
+(82, 17, 14, 'Confirmed', 0);
 
 --
 -- Indexes for dumped tables
@@ -151,19 +126,19 @@ ALTER TABLE `users_items`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users_items`
 --
 ALTER TABLE `users_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
