@@ -12,7 +12,7 @@
 				$user_id=$_SESSION['userID'];
 
 		
-		$user_products_query="select id from users_items where user_id='$user_id'";
+		$user_products_query="select id from users_items where user_id='$user_id' and status='Added to cart'";
 		$user_products_result=mysqli_query($con,$user_products_query) or die(mysqli_error($con));
         $no_of_products= mysqli_num_rows($user_products_result);
 		// echo "<script type='text/javascript'>alert('$resultItems');</script>";
